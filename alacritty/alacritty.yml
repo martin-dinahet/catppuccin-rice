@@ -1,0 +1,123 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 7
+    y: 7
+  dynamic_padding: false
+  opacity: 1.0
+  title: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 5000
+
+font:
+  normal:
+    family: Sauce Code Pro Nerd Font
+    style: Regular
+  bold:
+    family: Sauce Code Pro Nerd Font Mono
+    style: Bold
+  italic:
+    family: Sauce Code Pro Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: Sauce Code Pro Nerd Font Mono
+    style: Bold Italic
+
+  size: 9.0
+
+  offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: true
+
+schemes:
+  CatppuccinMocha: &CatppuccinMocha
+    primary:
+      background: "#1E1E2E" # base
+      foreground: "#CDD6F4" # text
+      # Bright and dim foreground colors
+      dim_foreground: "#CDD6F4" # text
+      bright_foreground: "#CDD6F4" # text
+    cursor:
+      text: "#1E1E2E" # base
+      cursor: "#F5E0DC" # rosewater
+    vi_mode_cursor:
+      text: "#1E1E2E" # base
+      cursor: "#B4BEFE" # lavender
+    search:
+      matches:
+        foreground: "#1E1E2E" # base
+        background: "#A6ADC8" # subtext0
+    focused_match:
+      foreground: "#1E1E2E" # base
+      background: "#A6E3A1" # green
+      footer_bar:
+        foreground: "#1E1E2E" # base
+        background: "#A6ADC8" # subtext0
+    hints:
+      start:
+        foreground: "#1E1E2E" # base
+        background: "#F9E2AF" # yellow
+      end:
+        foreground: "#1E1E2E" # base
+        background: "#A6ADC8" # subtext0
+    selection:
+      text: "#1E1E2E" # base
+      background: "#F5E0DC" # rosewater
+    normal:
+      black: "#45475A" # surface1
+      red: "#F38BA8" # red
+      green: "#A6E3A1" # green
+      yellow: "#F9E2AF" # yellow
+      blue: "#89B4FA" # blue
+      magenta: "#F5C2E7" # pink
+      cyan: "#94E2D5" # teal
+      white: "#BAC2DE" # subtext1
+    bright:
+      black: "#585B70" # surface2
+      red: "#F38BA8" # red
+      green: "#A6E3A1" # green
+      yellow: "#F9E2AF" # yellow
+      blue: "#89B4FA" # blue
+      magenta: "#F5C2E7" # pink
+      cyan: "#94E2D5" # teal
+      white: "#A6ADC8" # subtext0
+    dim:
+      black: "#45475A" # surface1
+      red: "#F38BA8" # red
+      green: "#A6E3A1" # green
+      yellow: "#F9E2AF" # yellow
+      blue: "#89B4FA" # blue
+      magenta: "#F5C2E7" # pink
+      cyan: "#94E2D5" # teal
+      white: "#BAC2DE" # subtext1
+    indexed_colors:
+      - { index: 16, color: "#FAB387" }
+      - { index: 17, color: "#F5E0DC" }
+
+colors: *CatppuccinMocha
+  
+key_bindings:
+  - { key: V,         mods: Control|Shift, action: Paste                       }
+  - { key: C,         mods: Control|Shift, action: Copy                        }
+  - { key: Insert,    mods: Shift,         action: PasteSelection              }
+  - { key: Key0,      mods: Control,       action: ResetFontSize               }
+  - { key: Equals,    mods: Control,       action: IncreaseFontSize            }
+  - { key: Plus,      mods: Control,       action: IncreaseFontSize            }
+  - { key: Minus,     mods: Control,       action: DecreaseFontSize            }
+  - { key: F11,       mods: None,          action: ToggleFullscreen            }
+  - { key: Paste,     mods: None,          action: Paste                       }
+  - { key: Copy,      mods: None,          action: Copy                        }
+  - { key: L,         mods: Control,       action: ClearLogNotice              }
+  - { key: L,         mods: Control,       chars: "\x0c"                       }
+  - { key: PageUp,    mods: None,          action: ScrollPageUp,   mode: ~Alt  }
+  - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
+  - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
+  - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
